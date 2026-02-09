@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo:*)",
+      "Bash(export PATH=\"/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$PATH\")",
+      "Bash(curl:*)",
+      "Bash(export PATH=\"$HOME/.local/node/bin:$PATH\")",
+      "Bash(node:*)",
+      "Bash(npm --version:*)",
+      "Bash(npx --version)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma init:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(npx next build)",
+      "Bash(npx prisma db push:*)",
+      "Bash(npm run dev:*)",
+      "Bash(open:*)",
+      "Bash(screencapture:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
