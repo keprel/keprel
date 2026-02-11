@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-muted: #18181b;
-  --color-muted-foreground: #a1a1aa;
-  --color-border: #27272a;
-  --color-input: #27272a;
-  --color-ring: #3b82f6;
-  --color-primary: #3b82f6;
+  --color-background: #0a0e1a;
+  --color-foreground: #e8ecf4;
+  --color-muted: #141a2e;
+  --color-muted-foreground: #8a94a8;
+  --color-border: #1e2a4a;
+  --color-input: #1e2a4a;
+  --color-ring: #4f8ff7;
+  --color-primary: #4f8ff7;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #18181b;
-  --color-secondary-foreground: #fafafa;
-  --color-accent: #1c1c22;
-  --color-accent-foreground: #fafafa;
+  --color-secondary: #141a2e;
+  --color-secondary-foreground: #e8ecf4;
+  --color-accent: #162040;
+  --color-accent-foreground: #e8ecf4;
   --color-destructive: #dc2626;
   --color-destructive-foreground: #fafafa;
-  --color-card: #0f0f12;
-  --color-card-foreground: #fafafa;
-  --color-popover: #0f0f12;
-  --color-popover-foreground: #fafafa;
+  --color-card: #0f1424;
+  --color-card-foreground: #e8ecf4;
+  --color-popover: #0f1424;
+  --color-popover-foreground: #e8ecf4;
   --radius: 0.5rem;
+  --animate-fade-in: fade-in 0.6s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes typing {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 20ch;
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-muted-foreground);
+  }
 }
 
 @layer base {
