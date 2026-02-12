@@ -14,7 +14,7 @@ export default function ConnectPage() {
       <section className="mb-12">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Connect</h1>
         <p className="text-muted-foreground">
-          Startups, freelance, or just a good idea — I'm always down to talk.
+          Startups, freelance, or just a good idea - I'm always down to talk.
         </p>
       </section>
 
