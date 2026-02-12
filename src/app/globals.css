@@ -22,6 +22,8 @@
   --color-popover-foreground: #e8ecf4;
   --radius: 0.5rem;
   --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-pulse-country: pulse-country 1.5s ease-in-out infinite;
+  --animate-flash-wrong: flash-wrong 0.5s ease-out forwards;
 
   @keyframes fade-in {
     from {
@@ -49,6 +51,27 @@
   }
   50% {
     border-color: var(--color-muted-foreground);
+  }
+}
+
+@keyframes pulse-country {
+  0%,
+  100% {
+    fill: #2a3a55;
+    filter: none;
+  }
+  50% {
+    fill: #4a7acc;
+    filter: drop-shadow(0 0 8px #4f8ff7);
+  }
+}
+
+@keyframes flash-wrong {
+  0% {
+    fill: #dc2626;
+  }
+  100% {
+    fill: #1e2640;
   }
 }
 

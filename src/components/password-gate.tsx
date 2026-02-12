@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useCallback, type ReactNode } from "react";
 import { Laptop, Compass } from "lucide-react";
+import { MapPuzzle } from "./map-puzzle/map-puzzle";
 
 const STORAGE_KEY = "site-auth";
-const PASSWORD = "password";
 
-type Phase = "password" | "intro" | "authenticated";
+type Phase = "puzzle" | "intro" | "authenticated";
 
 export function PasswordGate({ children }: { children: ReactNode }) {
-  const [phase, setPhase] = useState<Phase>("password");
+  const [phase, setPhase] = useState<Phase>("puzzle");
   const [checking, setChecking] = useState(true);
-  const [value, setValue] = useState("");
-  const [passwordFading, setPasswordFading] = useState(false);
+  const [puzzleFading, setPuzzleFading] = useState(false);
   const [introFading, setIntroFading] = useState(false);
 
   useEffect(() => {
@@ -22,44 +21,29 @@ export function PasswordGate({ children }: { children: ReactNode }) {
     setChecking(false);
   }, []);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (value === PASSWORD) {
-      sessionStorage.setItem(STORAGE_KEY, "true");
-      // Fade out password screen
-      setPasswordFading(true);
+  const handlePuzzleSolved = useCallback(() => {
+    sessionStorage.setItem(STORAGE_KEY, "true");
+    setPuzzleFading(true);
+    setTimeout(() => {
+      setPhase("intro");
       setTimeout(() => {
-        setPhase("intro");
-        // Hold intro for ~4s, then fade out
-        setTimeout(() => {
-          setIntroFading(true);
-          setTimeout(() => setPhase("authenticated"), 600);
-        }, 4000);
-      }, 500);
-    }
-  }
+        setIntroFading(true);
+        setTimeout(() => setPhase("authenticated"), 600);
+      }, 4000);
+    }, 500);
+  }, []);
 
   if (checking) return null;
 
-  if (phase === "password") {
+  if (phase === "puzzle") {
     return (
       <>
         <div
           className={`fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-500 ${
-            passwordFading ? "opacity-0" : "opacity-100"
+            puzzleFading ? "opacity-0" : "opacity-100"
           }`}
         >
-          <form onSubmit={handleSubmit}>
-            <input
-              type="password"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              autoFocus
-              className="w-48 border-b border-border/40 bg-transparent text-center font-mono text-sm text-foreground/70 outline-none placeholder:text-transparent focus:border-primary/50"
-              spellCheck={false}
-              autoComplete="off"
-            />
-          </form>
+          <MapPuzzle onSolved={handlePuzzleSolved} />
         </div>
         <div className="opacity-0" aria-hidden>
           {children}
@@ -76,9 +60,9 @@ export function PasswordGate({ children }: { children: ReactNode }) {
             introFading ? "opacity-0" : "opacity-100"
           }`}
         >
-          <div className="flex items-center gap-0">
+          <div className="flex flex-col items-center gap-0 sm:flex-row">
             {/* Left side — Laptop */}
-            <div className="flex w-48 flex-col items-center gap-3 opacity-0 animate-[fade-in_0.6s_ease-out_0.2s_forwards]">
+            <div className="flex w-36 flex-col items-center gap-3 opacity-0 sm:w-48 animate-[fade-in_0.6s_ease-out_0.2s_forwards]">
               <Laptop
                 size={40}
                 strokeWidth={1.2}
@@ -100,10 +84,10 @@ export function PasswordGate({ children }: { children: ReactNode }) {
             </div>
 
             {/* Divider */}
-            <div className="mx-8 h-24 w-px bg-border/30 opacity-0 animate-[fade-in_0.4s_ease-out_0.4s_forwards]" />
+            <div className="my-6 h-px w-16 bg-border/30 opacity-0 sm:mx-8 sm:my-0 sm:h-24 sm:w-px animate-[fade-in_0.4s_ease-out_0.4s_forwards]" />
 
             {/* Right side — Compass */}
-            <div className="flex w-48 flex-col items-center gap-3 opacity-0 animate-[fade-in_0.6s_ease-out_1s_forwards]">
+            <div className="flex w-36 flex-col items-center gap-3 opacity-0 sm:w-48 animate-[fade-in_0.6s_ease-out_1s_forwards]">
               <Compass
                 size={40}
                 strokeWidth={1.2}
