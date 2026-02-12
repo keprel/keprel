@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
@@ -9,18 +10,18 @@ import {
 
 const cards = [
   {
-    title: "Build",
-    description: "Startups I've worked with.",
+    title: "Work",
+    description: "What I've been building.",
     href: "/projects",
   },
   {
-    title: "Explore",
-    description: "Places I've been.",
+    title: "Life",
+    description: "Where I've been.",
     href: "/travel",
   },
   {
     title: "Connect",
-    description: "Got something interesting? Let's talk.",
+    description: "Let's talk.",
     href: "/connect",
   },
 ];
@@ -28,14 +29,25 @@ const cards = [
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-24">
-      <section className="mb-20">
-        <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-6xl">
-          Will Kepler
-        </h1>
-        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-          I help startups sell and ship. When I'm not doing that, I'm
-          adventuring somewhere new. Based in New York.
-        </p>
+      <section className="mb-20 flex items-center justify-between gap-8">
+        <div>
+          <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-6xl">
+            Will Kepler
+          </h1>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Sales, product, and growth.
+            <br />
+            Based in NYC. Curious everywhere.
+          </p>
+        </div>
+        <Image
+          src="/headshot.jpeg"
+          alt="Will Kepler"
+          width={96}
+          height={96}
+          className="h-24 w-24 shrink-0 rounded-full object-cover"
+          priority
+        />
       </section>
 
       <section className="grid gap-4 sm:grid-cols-3">

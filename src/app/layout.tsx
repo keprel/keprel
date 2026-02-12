@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Will Kepler",
-  description: "Sales, product, and the occasional adventure.",
+  description: "Sales, product, and growth. Based in NYC.",
 };
 
 export default function RootLayout({

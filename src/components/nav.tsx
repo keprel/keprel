@@ -7,8 +7,8 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/projects", label: "Projects" },
-  { href: "/travel", label: "Travel" },
+  { href: "/projects", label: "Work" },
+  { href: "/travel", label: "Life" },
   { href: "/connect", label: "Connect" },
 ];
 

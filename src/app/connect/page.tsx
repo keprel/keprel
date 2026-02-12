@@ -14,8 +14,7 @@ export default function ConnectPage() {
       <section className="mb-12">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Connect</h1>
         <p className="text-muted-foreground">
-          Whether it's a startup, a freelance gig, or just a good idea you want
-          to bounce around - I'm down to chat.
+          Startups, freelance, or just a good idea — I'm always down to talk.
         </p>
       </section>
 
@@ -23,7 +22,7 @@ export default function ConnectPage() {
         <CardHeader>
           <CardTitle>Send me a note</CardTitle>
           <CardDescription>
-            I'll get back to you when I can.
+            I'll be in touch.
           </CardDescription>
         </CardHeader>
         <CardContent>

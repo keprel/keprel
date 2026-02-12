@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       <section className="mb-12">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Projects</h1>
         <p className="text-muted-foreground">
-          Startups I've worked with.
+          What I've been building.
         </p>
       </section>
 

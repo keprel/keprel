@@ -24,7 +24,7 @@ export default function TravelPage() {
       <section className="mb-12">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Travel</h1>
         <p className="text-muted-foreground">
-          Some favorites so far.
+          A few highlights.
         </p>
       </section>
 
