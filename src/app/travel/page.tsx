@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { TravelGate } from "@/components/travel-gate";
 
 const trips = [
   { place: "Nicaragua", src: "/travel/nicaragua.jpg" },
@@ -20,6 +21,7 @@ const trips = [
 
 export default function TravelPage() {
   return (
+    <TravelGate>
     <div className="mx-auto max-w-4xl px-6 py-24">
       <section className="mb-12">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Travel</h1>
@@ -60,5 +62,6 @@ export default function TravelPage() {
         ))}
       </div>
     </div>
+    </TravelGate>
   );
 }
