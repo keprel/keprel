@@ -131,8 +131,9 @@ export default function HomePage() {
             Will Kepler
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-            GTM Engineer. I build systems that find, qualify, and convert leads
-            on autopilot.
+            Sales, product, and growth.
+            <br />
+            Based in NYC. Curious everywhere.
           </p>
         </div>
         <Image
@@ -148,7 +149,7 @@ export default function HomePage() {
       {/* Portfolio */}
       <section className="mb-20">
         <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          GTM Systems I Built at Trak
+          GTM - some systems I've built
         </h2>
         <div className="space-y-8">
           {portfolio.map((item) => (
